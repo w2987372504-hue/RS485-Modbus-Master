@@ -31,12 +31,12 @@ void Serial_Init(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);					//将PB10引脚初始化为推挽输出，用作RS485方向控制
+	GPIO_Init(GPIOB, &GPIO_InitStructure);					//将PB14引脚初始化为推挽输出，用作RS485方向控制
 
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOB, &GPIO_InitStructure);					//将PB11引脚初始化为推挽输出，用作RS485方向控制
+	GPIO_Init(GPIOB, &GPIO_InitStructure);					//将PB15引脚初始化为推挽输出，用作RS485方向控制
 	
 	/*USART初始化*/
 	USART_InitTypeDef USART_InitStructure;					//定义结构体变量
@@ -166,13 +166,13 @@ void Serial_Printf(char *format, ...)
 void ModeO(void)
 {
    GPIO_SetBits(GPIOB, GPIO_Pin_14);
-   GPIO_ResetBits(GPIOB, GPIO_Pin_15);
+   GPIO_SetBits(GPIOB, GPIO_Pin_15);
 }
 
 void ModeI(void)
 {
    GPIO_ResetBits(GPIOB, GPIO_Pin_14);
-   GPIO_SetBits(GPIOB, GPIO_Pin_15);
+   GPIO_ResetBits(GPIOB, GPIO_Pin_15);
 }
 
 uint8_t Serial_GetRxFlag(void)
