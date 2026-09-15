@@ -1,0 +1,10 @@
+# ---- Keil 编译中间产物，每次编译都会重新生成，不需要进版本库 ----
+Objects/
+Listings/
+DebugConfig/
+
+# ---- Keil 自动生成的用户界面设置和备份文件 ----
+*.uvguix.*
+*.bak
+*.dep
+*.build_log.htm
