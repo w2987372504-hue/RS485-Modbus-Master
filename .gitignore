@@ -8,3 +8,33 @@ DebugConfig/
 *.bak
 *.dep
 *.build_log.htm
+
+# ---- Keil 每次打开工程都会刷新的本机状态（断点、观察窗口、窗口布局） ----
+# 调试器选择和烧录算法在 Project.uvprojx 里，忽略它不影响编译和下载程序
+*.uvoptx
+
+# ---- Keil 会自己重新生成的文件 ----
+EventRecorderStub.scvd
+RTE/
+
+# ---- 兜底：万一 Keil 的输出目录改了名字，靠后缀挡住产物 ----
+# *.hex 是烧录固件；如果要归档某个发布版本，用 git add -f 强制加入
+*.o
+*.d
+*.crf
+*.axf
+*.lnp
+*.sct
+*.hex
+*.map
+*.lst
+*.htm
+
+# ---- 调试器在本机留下的日志和设置 ----
+JLinkLog.txt
+JLinkSettings.ini
+*.log
+
+# ---- Windows 系统垃圾文件 ----
+Thumbs.db
+desktop.ini
